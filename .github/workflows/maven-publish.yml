@@ -19,7 +19,7 @@ jobs:
       - name: Installing maven
         uses: s4u/setup-maven-action@v1.14.0
         with: 
-         maven_version: '3.9.11'
+         maven-version: '3.9.11'
 
       - name: checkout
         uses: actions/checkout@v4

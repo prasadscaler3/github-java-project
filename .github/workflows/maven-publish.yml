@@ -25,13 +25,13 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build
-        uses: mvn compile
+        run: mvn compile
 
       - name: Test
-        uses: mvn test
+        run: mvn test
 
       - name: Artifact
-        uses: mvn package
+        run: mvn package
          
    
       

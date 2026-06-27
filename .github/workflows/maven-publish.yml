@@ -1,0 +1,38 @@
+name: Pipeline
+
+on: 
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  job-1:
+    runs-on: ubuntu-latest
+    steps:
+    
+      - name: Setup JDK 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin' # See 'Supported distributions' for available options
+          java-version: '17'
+      
+      - name: Installing maven
+        uses: s4u/setup-maven-action@v5
+        with: 
+         maven_version: '3.9.11'
+
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: Build
+        uses: mvn compile
+
+      - name: Test
+        uses: mvn test
+
+      - name: Artifact
+        uses: mvn package
+         
+   
+      
+          
